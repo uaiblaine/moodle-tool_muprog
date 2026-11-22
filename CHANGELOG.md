@@ -8,13 +8,20 @@ The format of this change log follows the advice given at [Keep a CHANGELOG](htt
 
 ### Added
 
+- Czech translation and AI-produced previews of German, French, Italian, Portuguese and Spanish translations
 - cohort usage in programs is listed in advanced cohort management
 - programs may be created as drafts, users cannot be allocated until the program is released
 - CLI script for duplication of programs with courses
 - weekly reminder notification for programs
+- configurable time before due date in "Program due date soon" notification, the default is 3 days
+- configurable time before end date in "Program end date soon" notification, the default is 3 days
+- "Last warning before program end" notification with configurable time before end date, the default is 1 day
 
 ### Changed
 
+- My programs and My programs overview blocks are not required any more,
+  the blocks depend on this plugin instead
+- users are allocated manually in a users picker panel with identity columns and paging instead of an autocomplete
 - program catalogue was replaced by Universal catalogue plugin, public programs are migrated
   to active catalogue sections, programs visible to cohorts are migrated to draft sections
 - catalogue access is controlled by _tool/mucatalog:browse_ capability,

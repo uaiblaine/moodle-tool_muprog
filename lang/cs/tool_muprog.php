@@ -204,6 +204,7 @@ $string['messageprovider:duesoon_notification'] = 'Oznámení o blížícím se 
 $string['messageprovider:endcompleted_notification'] = 'Oznámení o skončení dokončeného programu';
 $string['messageprovider:endfailed_notification'] = 'Oznámení o skončení nedokončeného programu';
 $string['messageprovider:endsoon_notification'] = 'Oznámení o blížícím se konci programu';
+$string['messageprovider:endverysoon_notification'] = 'Oznámení s posledním varováním před koncem programu';
 $string['messageprovider:reminder_notification'] = 'Týdenní připomínka programu';
 $string['messageprovider:reset_notification'] = 'Oznámení o resetování programu';
 $string['messageprovider:start_notification'] = 'Oznámení o začátku programu';
@@ -267,13 +268,14 @@ $string['notification_due_body'] = 'Dobrý den, {$a->user_fullname},
 dokončení programu „{$a->program_fullname}“ se očekávalo do {$a->program_duedate}.
 ';
 $string['notification_due_description'] = 'Oznámení odesílané uživatelům, když je dokončení jejich programu po termínu.';
-$string['notification_due_subject'] = 'Dokončení programu se očekávalo';
+$string['notification_due_subject'] = 'Dokončení programu je po termínu';
 $string['notification_duesoon'] = 'Blíží se termín splnění programu';
 $string['notification_duesoon_body'] = 'Dobrý den, {$a->user_fullname},
 
 dokončení programu „{$a->program_fullname}“ se očekává {$a->program_duedate}.
 ';
-$string['notification_duesoon_description'] = 'Oznámení odesílané uživatelům před datem dokončení jejich programu, pokud už program není dokončený.';
+$string['notification_duesoon_description'] = 'Oznámení odesílané uživatelům před datem dokončení jejich programu, pokud už program není dokončený. Dobu před termínem splnění lze nastavit, výchozí hodnota jsou 3 dny.';
+$string['notification_duesoon_interval'] = 'Doba před termínem splnění';
 $string['notification_duesoon_subject'] = 'Brzy se očekává dokončení programu';
 $string['notification_endcompleted'] = 'Dokončený program skončil';
 $string['notification_endcompleted_body'] = 'Dobrý den, {$a->user_fullname},
@@ -294,8 +296,19 @@ $string['notification_endsoon_body'] = 'Dobrý den, {$a->user_fullname},
 
 program „{$a->program_fullname}“ končí {$a->program_enddate}.
 ';
-$string['notification_endsoon_description'] = 'Oznámení odesílané uživatelům před datem konce jejich programu, pokud už program není dokončený.';
+$string['notification_endsoon_description'] = 'Oznámení odesílané uživatelům před datem konce jejich programu, pokud už program není dokončený. Dobu před koncem programu lze nastavit, výchozí hodnota jsou 3 dny.';
+$string['notification_endsoon_interval'] = 'Doba před koncem programu';
 $string['notification_endsoon_subject'] = 'Program brzy končí';
+$string['notification_endverysoon'] = 'Poslední varování před koncem programu';
+$string['notification_endverysoon_body'] = 'Dobrý den, {$a->user_fullname},
+
+**toto je poslední varování**, program „{$a->program_fullname}“ končí {$a->program_enddate} a stále jste jej nedokončili.
+
+Dokončete program okamžitě, po datu konce to již nebude možné.
+';
+$string['notification_endverysoon_description'] = 'Poslední varování odesílané uživatelům krátce před datem konce jejich programu, pokud už program není dokončený. Dobu před koncem programu lze nastavit, výchozí hodnota je 1 den.';
+$string['notification_endverysoon_interval'] = 'Doba před koncem programu';
+$string['notification_endverysoon_subject'] = 'Naléhavé: dokončete program, než skončí';
 $string['notification_reminder'] = 'Týdenní připomínka';
 $string['notification_reminder_body'] = 'Dobrý den, {$a->user_fullname},
 

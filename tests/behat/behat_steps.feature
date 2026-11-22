@@ -59,10 +59,10 @@ Feature: Programs navigation behat steps test
     And I should see "Program 000"
     And I should see "Program 001"
     And I should see "Program 002"
+    And I click on "Remove filter: Archived" "button"
     And I should see "Program 003"
 
-    When I press "+ Add filter"
-    And I click on "Exclude sub-categories" "button" in the ".tool_mulib-report-filter-bar-popover" "css_element"
+    When I click on "Exclude sub-categories: Any" "button"
     And I click on "Yes" "button" in the ".tool_mulib-report-filter-bar-popover" "css_element"
     Then I should see "Programs"
     And I should see "Program 000"
@@ -92,7 +92,7 @@ Feature: Programs navigation behat steps test
     And I should see "Program 000"
     And I should see "Program 001"
     And I should see "Program 002"
-    And I should see "Program 003"
+    And I should not see "Program 003"
 
     When I follow "Cat 1"
     Then I should see "Programs"
@@ -109,14 +109,14 @@ Feature: Programs navigation behat steps test
     And I should see "Program 000"
     And I should see "Program 001"
     And I should see "Program 002"
-    And I should see "Program 003"
+    And I should not see "Program 003"
 
     When I am on the "system" "tool_muprog > Program management" page
     Then I should see "Programs"
     And I should see "Program 000"
     And I should see "Program 001"
     And I should see "Program 002"
-    And I should see "Program 003"
+    And I should not see "Program 003"
 
     When I am on the "Cat 1" "tool_muprog > Program management" page
     Then I should see "Programs"
@@ -133,7 +133,7 @@ Feature: Programs navigation behat steps test
     And I should see "Program 000"
     And I should see "Program 001"
     And I should see "Program 002"
-    And I should see "Program 003"
+    And I should not see "Program 003"
 
     When I follow "Cat 1"
     Then I should see "Programs"
@@ -163,14 +163,14 @@ Feature: Programs navigation behat steps test
     And I should see "Program 000"
     And I should see "Program 001"
     And I should see "Program 002"
-    And I should see "Program 003"
+    And I should not see "Program 003"
 
     When I am on the "system" "tool_muprog > Program management" page
     Then I should see "Programs"
     And I should see "Program 000"
     And I should see "Program 001"
     And I should see "Program 002"
-    And I should see "Program 003"
+    And I should not see "Program 003"
 
     When I am on the "Cat 1" "tool_muprog > Program management" page
     Then I should see "Programs"
@@ -199,8 +199,8 @@ Feature: Programs navigation behat steps test
     And I should see "Program 000"
     And I should see "Program 001"
     And I should see "Program 002"
-    And I should see "Program 003"
-    And I should see "Program 003"
+    And I should not see "Program 003"
+    And I should not see "Program 003"
 
     When I follow "Cat 1"
     Then I should see "Programs"
@@ -215,8 +215,8 @@ Feature: Programs navigation behat steps test
     And I should see "Program 000"
     And I should see "Program 001"
     And I should see "Program 002"
-    And I should see "Program 003"
-    And I should see "Program 003"
+    And I should not see "Program 003"
+    And I should not see "Program 003"
 
   Scenario: Category viewer navigates to programs via behat step
     Given I log in as "viewer2"
