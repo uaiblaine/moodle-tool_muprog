@@ -108,7 +108,7 @@ $string['event_program_viewed'] = 'Programa visualizado';
 $string['evidence'] = 'Outras evidências';
 $string['evidence_details'] = 'Detalhes';
 $string['evidence_detailsdefault'] = 'Detalhes padrão';
-$string['evidencedate'] = 'Data de conclusão da evidência';
+$string['evidencedate'] = 'Data de conclusão na evidência';
 $string['evidenceupdate'] = 'Atualizar outras evidências';
 $string['evidenceupload'] = 'Enviar evidências de conclusão';
 $string['evidenceupload_column_ignore'] = 'Não utilizada';
@@ -200,6 +200,7 @@ $string['messageprovider:duesoon_notification'] = 'Notificação de data de conc
 $string['messageprovider:endcompleted_notification'] = 'Notificação de término de programa concluído';
 $string['messageprovider:endfailed_notification'] = 'Notificação de término de programa não concluído';
 $string['messageprovider:endsoon_notification'] = 'Notificação de data de término do programa próxima';
+$string['messageprovider:endverysoon_notification'] = 'Notificação de último aviso antes do término do programa';
 $string['messageprovider:reminder_notification'] = 'Notificação de lembrete semanal do programa';
 $string['messageprovider:reset_notification'] = 'Notificação de reinício do programa';
 $string['messageprovider:start_notification'] = 'Notificação de programa iniciado';
@@ -263,13 +264,14 @@ $string['notification_due_body'] = 'Olá, {$a->user_fullname},
 a conclusão do programa "{$a->program_fullname}" era esperada até {$a->program_duedate}.
 ';
 $string['notification_due_description'] = 'Notificação enviada aos usuários quando a conclusão do programa está em atraso.';
-$string['notification_due_subject'] = 'A conclusão do programa era esperada';
+$string['notification_due_subject'] = 'A conclusão do programa está em atraso';
 $string['notification_duesoon'] = 'Data de conclusão do programa próxima';
 $string['notification_duesoon_body'] = 'Olá, {$a->user_fullname},
 
 a conclusão do programa "{$a->program_fullname}" é esperada em {$a->program_duedate}.
 ';
-$string['notification_duesoon_description'] = 'Notificação enviada aos usuários antes da data de conclusão prevista do programa, a menos que o programa já esteja concluído.';
+$string['notification_duesoon_description'] = 'Notificação enviada aos usuários antes da data de conclusão prevista do programa, a menos que o programa já esteja concluído. O tempo antes da data de conclusão prevista é configurável; o padrão é 3 dias.';
+$string['notification_duesoon_interval'] = 'Tempo antes da data de conclusão prevista';
 $string['notification_duesoon_subject'] = 'A conclusão do programa é esperada em breve';
 $string['notification_endcompleted'] = 'Término de programa concluído';
 $string['notification_endcompleted_body'] = 'Olá, {$a->user_fullname},
@@ -290,8 +292,19 @@ $string['notification_endsoon_body'] = 'Olá, {$a->user_fullname},
 
 o programa "{$a->program_fullname}" termina em {$a->program_enddate}.
 ';
-$string['notification_endsoon_description'] = 'Notificação enviada aos usuários antes da data de término do programa, a menos que o programa já esteja concluído.';
+$string['notification_endsoon_description'] = 'Notificação enviada aos usuários antes da data de término do programa, a menos que o programa já esteja concluído. O tempo antes da data de término é configurável; o padrão é 3 dias.';
+$string['notification_endsoon_interval'] = 'Tempo antes da data de término';
 $string['notification_endsoon_subject'] = 'O programa termina em breve';
+$string['notification_endverysoon'] = 'Último aviso antes do término do programa';
+$string['notification_endverysoon_body'] = 'Olá, {$a->user_fullname},
+
+**este é o último aviso**: o programa "{$a->program_fullname}" termina em {$a->program_enddate} e você ainda não o concluiu.
+
+Conclua o programa imediatamente; isso não será possível após a data de término.
+';
+$string['notification_endverysoon_description'] = 'Último aviso enviado aos usuários pouco antes da data de término do programa, a menos que o programa já esteja concluído. O tempo antes da data de término é configurável; o padrão é 1 dia.';
+$string['notification_endverysoon_interval'] = 'Tempo antes da data de término';
+$string['notification_endverysoon_subject'] = 'Urgente: conclua o programa antes que ele termine';
 $string['notification_reminder'] = 'Lembrete semanal';
 $string['notification_reminder_body'] = 'Olá, {$a->user_fullname},
 

@@ -16,22 +16,21 @@
 
 // phpcs:disable moodle.Files.BoilerplateComment.CommentEndedTooSoon
 
-namespace tool_muprog\muform\autocomplete;
+namespace tool_muprog\muform\userpicker;
 
-use tool_mulib\muform\util\autocomplete\cohort_trait;
+use core\context;
+use tool_mulib\local\sql;
 
 /**
- * Cohort whose members are allocated to a program manually.
+ * Users that may be allocated to a program manually.
  *
  * @package     tool_muprog
  * @copyright   2026 Petr Skoda
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-final class source_manual_allocate_cohortid extends \tool_mulib\muform\autocomplete\base {
-    use cohort_trait;
-
-    /** @var \context program context */
-    private \context $context;
+final class source_manual_allocate_users extends \tool_mulib\muform\userpicker\base {
+    /** @var context program context */
+    private context $context;
 
     /**
      * Constructor.
@@ -44,7 +43,7 @@ final class source_manual_allocate_cohortid extends \tool_mulib\muform\autocompl
     ) {
         global $DB;
         $program = $DB->get_record('tool_muprog_program', ['id' => $programid], '*', MUST_EXIST);
-        $this->context = \context::instance_by_id($program->contextid);
+        $this->context = context::instance_by_id($program->contextid);
         require_capability('tool/muprog:allocate', $this->context);
     }
 
@@ -54,12 +53,20 @@ final class source_manual_allocate_cohortid extends \tool_mulib\muform\autocompl
     }
 
     #[\Override]
-    public function search(string $query, int $maxitems): ?array {
-        return $this->search_cohorts($this->context, $query, $maxitems);
+    protected function get_context(): context {
+        return $this->context;
     }
 
+    /**
+     * Users already allocated are not candidates.
+     *
+     * @return sql|null
+     */
     #[\Override]
-    public function label(string $value): ?string {
-        return $this->cohort_labels($this->context, [$value])[$value] ?? null;
+    protected function get_candidates_sql(): ?sql {
+        return new sql(
+            "NOT EXISTS (SELECT 'x' FROM {tool_muprog_allocation} pa WHERE pa.userid = u.id AND pa.programid = :aprogid)",
+            ['aprogid' => $this->programid]
+        );
     }
 }

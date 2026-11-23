@@ -114,9 +114,9 @@ $string['event_program_viewed'] = 'Program viewed';
 $string['evidence'] = 'Other evidence';
 $string['evidence_details'] = 'Details';
 $string['evidence_detailsdefault'] = 'Default details';
-$string['evidencedate'] = 'Evidence completion date';
+$string['evidencedate'] = 'Completion date in evidence';
 $string['evidenceupdate'] = 'Update other evidence';
-$string['evidenceupload'] = 'Upload completion evidences';
+$string['evidenceupload'] = 'Upload completion evidence';
 $string['evidenceupload_column_ignore'] = 'Not used';
 $string['evidenceupload_column_number'] = 'Column {$a}';
 $string['evidenceupload_columns'] = 'Column meaning';
@@ -206,6 +206,7 @@ $string['messageprovider:duesoon_notification'] = 'Program due date soon notific
 $string['messageprovider:endcompleted_notification'] = 'Completed program ended notification';
 $string['messageprovider:endfailed_notification'] = 'Failed program ended notification';
 $string['messageprovider:endsoon_notification'] = 'Program end date soon notification';
+$string['messageprovider:endverysoon_notification'] = 'Program last warning before end notification';
 $string['messageprovider:reminder_notification'] = 'Program weekly reminder notification';
 $string['messageprovider:reset_notification'] = 'Program reset notification';
 $string['messageprovider:start_notification'] = 'Program started notification';
@@ -269,13 +270,14 @@ $string['notification_due_body'] = 'Hello {$a->user_fullname},
 completion of program "{$a->program_fullname}" was expected before {$a->program_duedate}.
 ';
 $string['notification_due_description'] = 'Notification sent to users when their program completion is overdue.';
-$string['notification_due_subject'] = 'Program completion was expected';
+$string['notification_due_subject'] = 'Program completion is overdue';
 $string['notification_duesoon'] = 'Program due date soon';
 $string['notification_duesoon_body'] = 'Hello {$a->user_fullname},
 
 completion of program "{$a->program_fullname}" is expected on {$a->program_duedate}.
 ';
-$string['notification_duesoon_description'] = 'Notification sent to users ahead of their program completion date unless program is already completed.';
+$string['notification_duesoon_description'] = 'Notification sent to users ahead of their program completion date unless program is already completed. The time before due date is configurable, the default is 3 days.';
+$string['notification_duesoon_interval'] = 'Time before due date';
 $string['notification_duesoon_subject'] = 'Program completion is expected soon';
 $string['notification_endcompleted'] = 'Completed program ended';
 $string['notification_endcompleted_body'] = 'Hello {$a->user_fullname},
@@ -296,8 +298,19 @@ $string['notification_endsoon_body'] = 'Hello {$a->user_fullname},
 
 program "{$a->program_fullname}" is ending on {$a->program_enddate}.
 ';
-$string['notification_endsoon_description'] = 'Notification sent to users ahead of their program end date unless program is already completed.';
+$string['notification_endsoon_description'] = 'Notification sent to users ahead of their program end date unless program is already completed. The time before end date is configurable, the default is 3 days.';
+$string['notification_endsoon_interval'] = 'Time before end date';
 $string['notification_endsoon_subject'] = 'Program ends soon';
+$string['notification_endverysoon'] = 'Last warning before program end';
+$string['notification_endverysoon_body'] = 'Hello {$a->user_fullname},
+
+**this is the last warning**, program "{$a->program_fullname}" is ending on {$a->program_enddate} and you have not completed it yet.
+
+Complete the program immediately, it will not be possible after the end date.
+';
+$string['notification_endverysoon_description'] = 'Last warning sent to users shortly before their program end date unless program is already completed. The time before end date is configurable, the default is 1 day.';
+$string['notification_endverysoon_interval'] = 'Time before end date';
+$string['notification_endverysoon_subject'] = 'Urgent: complete your program before it ends';
 $string['notification_reminder'] = 'Weekly reminder';
 $string['notification_reminder_body'] = 'Hello {$a->user_fullname},
 
@@ -361,7 +374,7 @@ $string['privacy:metadata:table:tool_muprog_allocation'] = 'Information about pr
 $string['privacy:metadata:table:tool_muprog_attendance'] = 'Offline attendance';
 $string['privacy:metadata:table:tool_muprog_cert_issue'] = 'Program allocation certificate issues';
 $string['privacy:metadata:table:tool_muprog_completion'] = 'Program allocation completions';
-$string['privacy:metadata:table:tool_muprog_evidence'] = 'Information about other completion evidences';
+$string['privacy:metadata:table:tool_muprog_evidence'] = 'Information about other completion evidence';
 $string['privacy:metadata:table:tool_muprog_operation'] = 'Lengthy program operations, such as duplication of programs, and the users who started them';
 $string['privacy:metadata:table:tool_muprog_request'] = 'Information about allocation request';
 $string['program'] = 'Program';

@@ -55,20 +55,21 @@ Feature: Program notifications management tests
     When I click on "Add notification" "link"
     And I set the following muform fields in the "dialog[open]" "css_element":
       | enabled | 1 |
-      | types   | User allocated, Program started, Program completed, Program due date soon, Program overdue, Weekly reminder, Program end date soon, Completed program ended, Failed program ended, User deallocated |
+      | types   | User allocated, Program started, Program completed, Program due date soon, Program overdue, Weekly reminder, Program end date soon, Last warning before program end, Completed program ended, Failed program ended, User deallocated |
     And I click on "Add notification" "button" in the "dialog[open]" "css_element"
     Then the following should exist in the "tool_muprog_notifications" table:
-      | Notification            | Customised | Enabled |
-      | User allocated          | No         | Yes     |
-      | Program started         | No         | Yes     |
-      | Program completed       | No         | Yes     |
-      | Program due date soon   | No         | Yes     |
-      | Program overdue         | No         | Yes     |
-      | Weekly reminder         | No         | Yes     |
-      | Program end date soon   | No         | Yes     |
-      | Completed program ended | No         | Yes     |
-      | Failed program ended    | No         | Yes     |
-      | User deallocated        | No         | Yes     |
+      | Notification                    | Customised | Enabled |
+      | User allocated                  | No         | Yes     |
+      | Program started                 | No         | Yes     |
+      | Program completed               | No         | Yes     |
+      | Program due date soon           | No         | Yes     |
+      | Program overdue                 | No         | Yes     |
+      | Weekly reminder                 | No         | Yes     |
+      | Program end date soon           | No         | Yes     |
+      | Last warning before program end | No         | Yes     |
+      | Completed program ended         | No         | Yes     |
+      | Failed program ended            | No         | Yes     |
+      | User deallocated                | No         | Yes     |
 
     And I follow "User allocated"
     And I press "Back"
@@ -77,12 +78,31 @@ Feature: Program notifications management tests
     And I follow "Program completed"
     And I press "Back"
     And I follow "Program due date soon"
+    And I should see "3 days" in the "Time before due date" definition list item
+    And I press "Update notification"
+    And the following muform fields match:
+      | auxint1 | 259200 |
+    And I set the following muform fields in the "dialog[open]" "css_element":
+      | auxint1 | 2592000 |
+    And I click on "Update notification" "button" in the "dialog[open]" "css_element"
+    And I should see "30 days" in the "Time before due date" definition list item
     And I press "Back"
     And I follow "Program overdue"
     And I press "Back"
     And I follow "Weekly reminder"
     And I press "Back"
     And I follow "Program end date soon"
+    And I should see "3 days" in the "Time before end date" definition list item
+    And I press "Update notification"
+    And the following muform fields match:
+      | auxint1 | 259200 |
+    And I set the following muform fields in the "dialog[open]" "css_element":
+      | auxint1 | 1296000 |
+    And I click on "Update notification" "button" in the "dialog[open]" "css_element"
+    And I should see "15 days" in the "Time before end date" definition list item
+    And I press "Back"
+    And I follow "Last warning before program end"
+    And I should see "1 day" in the "Time before end date" definition list item
     And I press "Back"
     And I follow "Completed program ended"
     And I press "Back"

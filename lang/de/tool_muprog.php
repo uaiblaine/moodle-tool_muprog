@@ -23,9 +23,6 @@
  * model and has not yet been reviewed by a human translator. Corrections are
  * welcome.
  *
- * HINWEIS: Diese deutsche Übersetzung wurde automatisch von einem KI-Sprachmodell
- * erstellt und noch nicht von einem Menschen geprüft. Korrekturen sind willkommen.
- *
  * @package    tool_muprog
  * @copyright  2026 Petr Skoda
  * @license    https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -211,6 +208,7 @@ $string['messageprovider:duesoon_notification'] = 'Systemnachricht zum baldigen 
 $string['messageprovider:endcompleted_notification'] = 'Systemnachricht zum Ende eines abgeschlossenen Programms';
 $string['messageprovider:endfailed_notification'] = 'Systemnachricht zum Ende eines nicht bestandenen Programms';
 $string['messageprovider:endsoon_notification'] = 'Systemnachricht zum baldigen Programmende';
+$string['messageprovider:endverysoon_notification'] = 'Systemnachricht zur letzten Warnung vor dem Programmende';
 $string['messageprovider:reminder_notification'] = 'Wöchentliche Erinnerung zum Programm';
 $string['messageprovider:reset_notification'] = 'Systemnachricht zum Zurücksetzen des Programms';
 $string['messageprovider:start_notification'] = 'Systemnachricht zum Programmbeginn';
@@ -274,13 +272,14 @@ $string['notification_due_body'] = 'Hallo {$a->user_fullname},
 der Abschluss des Programms „{$a->program_fullname}“ wurde vor dem {$a->program_duedate} erwartet.
 ';
 $string['notification_due_description'] = 'Benachrichtigung, die an Nutzer/innen gesendet wird, wenn der Abschluss ihres Programms überfällig ist.';
-$string['notification_due_subject'] = 'Programmabschluss wurde erwartet';
+$string['notification_due_subject'] = 'Programmabschluss ist überfällig';
 $string['notification_duesoon'] = 'Fälligkeitsdatum des Programms steht bevor';
 $string['notification_duesoon_body'] = 'Hallo {$a->user_fullname},
 
 der Abschluss des Programms „{$a->program_fullname}“ wird am {$a->program_duedate} erwartet.
 ';
-$string['notification_duesoon_description'] = 'Benachrichtigung, die an Nutzer/innen vor dem Fälligkeitsdatum ihres Programms gesendet wird, sofern das Programm noch nicht abgeschlossen ist.';
+$string['notification_duesoon_description'] = 'Benachrichtigung, die an Nutzer/innen vor dem Fälligkeitsdatum ihres Programms gesendet wird, sofern das Programm noch nicht abgeschlossen ist. Die Zeit vor dem Fälligkeitsdatum ist einstellbar, der Standardwert beträgt 3 Tage.';
+$string['notification_duesoon_interval'] = 'Zeit vor dem Fälligkeitsdatum';
 $string['notification_duesoon_subject'] = 'Programmabschluss wird bald erwartet';
 $string['notification_endcompleted'] = 'Abgeschlossenes Programm beendet';
 $string['notification_endcompleted_body'] = 'Hallo {$a->user_fullname},
@@ -301,8 +300,19 @@ $string['notification_endsoon_body'] = 'Hallo {$a->user_fullname},
 
 das Programm „{$a->program_fullname}“ endet am {$a->program_enddate}.
 ';
-$string['notification_endsoon_description'] = 'Benachrichtigung, die an Nutzer/innen vor dem Programmende gesendet wird, sofern das Programm noch nicht abgeschlossen ist.';
+$string['notification_endsoon_description'] = 'Benachrichtigung, die an Nutzer/innen vor dem Programmende gesendet wird, sofern das Programm noch nicht abgeschlossen ist. Die Zeit vor dem Programmende ist einstellbar, der Standardwert beträgt 3 Tage.';
+$string['notification_endsoon_interval'] = 'Zeit vor dem Programmende';
 $string['notification_endsoon_subject'] = 'Programm endet bald';
+$string['notification_endverysoon'] = 'Letzte Warnung vor dem Programmende';
+$string['notification_endverysoon_body'] = 'Hallo {$a->user_fullname},
+
+**dies ist die letzte Warnung**, das Programm „{$a->program_fullname}“ endet am {$a->program_enddate} und Sie haben es noch nicht abgeschlossen.
+
+Schließen Sie das Programm umgehend ab, nach dem Programmende ist dies nicht mehr möglich.
+';
+$string['notification_endverysoon_description'] = 'Letzte Warnung, die an Nutzer/innen kurz vor dem Programmende gesendet wird, sofern das Programm noch nicht abgeschlossen ist. Die Zeit vor dem Programmende ist einstellbar, der Standardwert beträgt 1 Tag.';
+$string['notification_endverysoon_interval'] = 'Zeit vor dem Programmende';
+$string['notification_endverysoon_subject'] = 'Dringend: Schließen Sie das Programm vor dem Ende ab';
 $string['notification_reminder'] = 'Wöchentliche Erinnerung';
 $string['notification_reminder_body'] = 'Hallo {$a->user_fullname},
 

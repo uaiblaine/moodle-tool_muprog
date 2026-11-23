@@ -45,6 +45,7 @@ final class notification_manager extends \tool_mulib\local\notification\manager 
             'due' => notification\due::class,
             'reminder' => notification\reminder::class,
             'endsoon' => notification\endsoon::class,
+            'endverysoon' => notification\endverysoon::class,
             'endcompleted' => notification\endcompleted::class,
             'endfailed' => notification\endfailed::class,
             'deallocation' => notification\deallocation::class,
@@ -333,6 +334,6 @@ final class notification_manager extends \tool_mulib\local\notification\manager 
             return false;
         }
         $source = new \tool_muprog\muform\autocomplete\notification_import_frominstance($instanceid);
-        return $source->label((string)$frominstanceid) !== null;
+        return (bool)$source->labels([(string)$frominstanceid]);
     }
 }
